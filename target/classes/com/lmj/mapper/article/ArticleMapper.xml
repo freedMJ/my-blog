@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lmj.mapper.article.ArticleMapper">
+
+    <!--保存文章-->
+    <insert id="saveArticle" parameterType="com.lmj.model.Article">
+--     private String title;//文章标题
+--     private String keyWord;//关键字：Java，python，生活，感悟，
+--     private  Integer isOriginal;//0.原创,1.非原创
+--     private Integer createTime;//创建时间
+--     private Integer updateTime;//更新时间
+--     private String text;//正文
+--     private Integer browseNums;//浏览量
+--     private Integer uid ;//用户id
+        insert into article(title,keyWord,isOriginal,createTime,updateTime,text,browseNums,uid)
+        values(#{title},#{keyWord},#{isOriginal},#{createTime},#{updateTime},#{text},#{browseNums},#{uid})
+    </insert>
+    <select id="findAllArticleInfo" resultType="com.lmj.model.ArticleInfo">
+        select u.username,a.title,a.isOriginal,a.keyWord,a.createTime,a.updateTime,a.browseNums from user as u,article as a where u.id=a.uid;
+    </select>
+</mapper>
