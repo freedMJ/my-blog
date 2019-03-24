@@ -19,12 +19,15 @@
   </head>
   <body>
     <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
-    <a href="index.ftl" style="margin-left: 900px">返回首页</a>
+    <a href="${request.contextPath}/user/index" style="margin-left: 900px">返回首页</a>
     
     <div style="height: 400px;width: 500px;margin-top: 200px;margin-left: 400px">
 
    <form class="form-horizontal" action="${request.contextPath}/user/login" method="post">
   <h1>用户登录：</h1>
+     <#if errMsg??>
+         <h1 style="color: red">${errMsg}</h1>
+     </#if>
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
     <div class="col-sm-10">

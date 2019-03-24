@@ -13,8 +13,6 @@
       <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
       <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-      <script src="../js/jquery.pagination.js"></script>
-      <link rel="stylesheet" href="../css/pagination.css">
     <style type="text/css">
       #form{
         text-align:center;
@@ -25,40 +23,7 @@
 }
     </style>
       <#--分页代码-->
-      <script>
-          $(function () {
-              $.ajax({
-                  url:'${request.contextPath}/user/allArticleInfo',
-                  type:'POST',
-                  dataType: 'JSON',
-                  data:{
-                  },
-                  success:function(data){
-                      //返回条数
-                      console.log(data)
-                      console.log(data.numberOfElements);
-                      //总条数
-                      console.log(data.totalElements);
-                      //总页码
-                      console.log(data.totalPages);
 
-                      // $('.M-box').pagination({
-                      //     pageCount:data.totalPages,   //总页码
-                      //     coping:true,                 //是否开启首页和末页
-                      //     homePage:'首页',
-                      //     endPage:'末页',
-                      //     prevContent:'上页',
-                      //     nextContent:'下页',
-                      //     current:1,                    //当前页码
-                      //     callback:function (api) {     //这是一个回调函数
-                      //
-                      //     }
-                      // });
-                  }
-              }
-          )})
-
-      </script>
   </head>
   <body>
     <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
@@ -91,7 +56,7 @@
        <a href="${request.contextPath}/user/userCenter">欢迎你：${user.username}</a>&nbsp&nbsp&nbsp&nbsp
         <a href="${request.contextPath}/user/quit">退出</a>
         <#else >
-          <a href="${request.contextPath}/register">注册</a>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="login.ftl" style="left: 1128px">登录</a>
+          <a href="${request.contextPath}/user/register">注册</a>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="${request.contextPath}/user/login.ftl" style="left: 1128px">登录</a>
       </#if>
   </div>
     <div>
@@ -100,30 +65,91 @@
         <li role="presentation"><a href="${request.contextPath}/user/userCenter">个人中心</a></li>
     </ul>
 <table class="table table-striped">
-
     <tr>
     <td>#</td>
     <td>作者</td>
     <td >文章标题</td>
     <td>标签</td>
     <td>发布时间</td>
-        <td>更新时间</td>
+    <td>更新时间</td>
     <td>浏览量</td>
-
     </tr>
+    <#list page as article>
     <tr>
-    <td>1</td>
-    <td><a href="${request.contextPath}/user/findAuthor">lmj</a></td>
-    <td><a href="${request.contextPath}/user/findArticle">逍遥游</a></td>
-    <td>xxx</td>
-    <td>xxx<</td>
-        <td>xxx<</td>
-    <td>1000000</td>
-    </tr>
-</table>
-        <div class="M-box"></div>
-    </div>
-  
+        <td>${(pageNum-1)*pageSize+(article? index+1)}</td>
+        <td>
+            <!--跳转作者详情-->
+            <a href="${request.contextPath}/user/findAuthor?uid=${article.uid}">${article.username}</a>
+        </td>
+        <td>
+            <!--跳转文章详情-->
+            <a href="${request.contextPath}/user/findArticle?title=${article.title}">${article.title}</a>
+        </td>
+        <td>
+            <#if article.isOriginal==0>
+                原创
+                <#else >
+                非原创
+            </#if>
+        </td>
+        <td>
 
+            <#if article.createTime??>
+                ${(article.createTime*1000)?number_to_datetime}
+            <#else >
+                无
+            </#if>
+        </td>
+        <td>
+            <#if article.updateTime??>
+                ${(article.updateTime*1000)?number_to_datetime}
+            <#else >
+                无
+            </#if>
+
+        </td>
+        <td>
+            <#if article.browseNums??>
+                ${article.browseNums}
+                <#else >
+                无
+            </#if>
+
+        </td>
+    </tr>
+    </#list>
+    </div>
+</table>
+    <nav aria-label="Page navigation">
+
+        <ul class="pagination">
+            <#if pageNum gt 1><!--如果有上一页-->
+            <li>
+                <a href="${request.contextPath}/user/index?pageNum=${pageNum-1}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            </#if>
+            <#if nums??>
+            <#list nums as num>
+                <#if pageNum ==num>
+                    <li class="active"><a href="${request.contextPath}/user/index?pageNum=${pageNum}">${pageNum}</a></li>
+                    <#else >
+                        <li><a href="${request.contextPath}/user/index?pageNum=${num}">${num}</a></li>
+                </#if>
+
+            </#list>
+            </#if>
+            <!---->
+            <#if pageNum lt pages >
+                <li>
+                    <a href="${request.contextPath}/user/index?pageNum=${pageNum+1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </#if>
+        </ul>
+
+    </nav>
   </body>
 </html>

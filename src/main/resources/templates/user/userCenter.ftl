@@ -19,8 +19,8 @@
   </head>
   <body>
     <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
-  <a href="index.ftl" style="margin-left: 1100px">返回首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp
-  <a href="/user/userInfo">个人资料</a>
+  <a href="${request.contextPath}/user/index" style="margin-left: 1100px">返回首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+  <a href="${request.contextPath}/user/userInfo">个人资料</a>
   <div>
     <h2>个人中心：</h2>
     <#if Session["user"]??>

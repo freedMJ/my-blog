@@ -9,11 +9,12 @@ public class ArticleInfo {
     private String text;//正文
     private Integer browseNums;//浏览量
     private String username;//作者名字
+    private Integer uid;//作者外键
 
     public ArticleInfo() {
     }
 
-    public ArticleInfo(String title, String keyWord, Integer isOriginal, Long createTime, Long updateTime, String text, Integer browseNums, String username) {
+    public ArticleInfo(String title, String keyWord, Integer isOriginal, Long createTime, Long updateTime, String text, Integer browseNums, String username, Integer uid) {
         this.title = title;
         this.keyWord = keyWord;
         this.isOriginal = isOriginal;
@@ -22,6 +23,7 @@ public class ArticleInfo {
         this.text = text;
         this.browseNums = browseNums;
         this.username = username;
+        this.uid = uid;
     }
 
     public String getTitle() {
@@ -88,6 +90,14 @@ public class ArticleInfo {
         this.username = username;
     }
 
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
     @Override
     public String toString() {
         return "ArticleInfo{" +
@@ -99,6 +109,7 @@ public class ArticleInfo {
                 ", text='" + text + '\'' +
                 ", browseNums=" + browseNums +
                 ", username='" + username + '\'' +
+                ", uid=" + uid +
                 '}';
     }
 }

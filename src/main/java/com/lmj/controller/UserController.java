@@ -1,16 +1,24 @@
 package com.lmj.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.lmj.model.ArticleInfo;
 import com.lmj.model.User;
 import com.lmj.service.article.IArticleService;
 import com.lmj.service.user.IUserService;
+import com.lmj.utils.PageNumArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -20,9 +28,12 @@ public class UserController {
     private IUserService userService;
     @Autowired
     private IArticleService articleService;
+    //规定每页显示的数据条数
+    @Value("${common.pageSize}")
+    int pageSize;
     //首页
     @GetMapping("index")
-    public String index(Model model,HttpServletRequest request){
+    public String index(Model model,HttpServletRequest request,@RequestParam(name="pageNum",defaultValue ="1")int pageNum){
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         if(user!=null){
@@ -32,17 +43,19 @@ public class UserController {
             model.addAttribute("isLogin","notLogin");//true:登陆，false：未登陆
         }
 
+
+        Page page = (Page) articleService.findArticleInfoPage(pageNum,pageSize);
+        model.addAttribute("page",page);
+        model.addAttribute("pageNum",pageNum);
+        model.addAttribute("pageSize",pageSize);
+        int pages=page.getPages();//总的页数
+        model.addAttribute("pages",pages);
+        //调用工具类抽取的得到分页页码的数组
+        PageNumArray pageNumArray = new PageNumArray();
+        int[] nums = pageNumArray.getPageNumArray(pageNum,pages);
+        model.addAttribute("nums",nums);
         return "user/index";
     }
-    //得到所有文章详细信息
-    @PostMapping("allArticleInfo")
-    @ResponseBody
-    public List<ArticleInfo> allArticleInfo(){
-        List<ArticleInfo> articleInfoList = articleService.findAllArticleInfo();
-        System.out.println(articleInfoList);
-        return articleInfoList;
-    }
-
     //注册
     @GetMapping("register")
     public String userRegister(){
@@ -75,7 +88,7 @@ public class UserController {
         User ret_user = userService.loginUser(username,password);
         if(ret_user==null){
             model.addAttribute("errMsg","该用户不存在");
-            return "user/errLogin";
+            return "user/login";
         }else{
             //登陆成功，跳转到首页，用户信息存进session
             HttpSession session = request.getSession( );
@@ -106,7 +119,6 @@ public class UserController {
 
         return "user/userInfo";
     }
-
     //修改密码
     @PostMapping("updateUserPassword")
     public String updataUserPassword(@RequestParam("password") String password,HttpServletRequest request ,Model model){
@@ -172,7 +184,25 @@ public class UserController {
     //修改头像
     //访问作者
     @GetMapping("findAuthor")
-    public String findAuthorCenter(){
+    public String findAuthorCenter(Model model,@RequestParam(name="uid",defaultValue="0")int uid,@RequestParam(name="pageNum",defaultValue ="1")int pageNum){
+        if(uid!=0){
+            //根据用户id查询用户信息
+            User user = articleService.findUserByUid(uid);
+            Page page = (Page) articleService.findUserAllArticleByUidPage(uid,pageNum,pageSize);
+            int pages=page.getPages();
+            model.addAttribute("userInfo",user);//查到的用户详情
+            model.addAttribute("pageList",page);//查到的分页文章数据
+            model.addAttribute("uid",uid);
+            model.addAttribute("pages",pages);//总的分页数
+            model.addAttribute("pageNum",pageNum);//当前页
+            model.addAttribute("pageSize",pageSize);//每页允许显示的文章数量
+            //得到分页数目列表
+            PageNumArray pageNumArray = new PageNumArray();
+            int[] nums = pageNumArray.getPageNumArray(pageNum, pages);
+            System.out.println(Arrays.toString(nums));
+            model.addAttribute("nums",nums);
+
+        }
 
         return "user/authorCenter";
     }

@@ -32,7 +32,7 @@
       <#if errMsg??>
           <h1 style="color: red">${errMsg}</h1>
       </#if>
-    <form method="post" action="%{request.contextPath}/user/register">
+    <form method="post" action="${request.contextPath}/user/register">
       <div class="form-group">
     <label for="exampleInputPassword1">账号名称</label>
     <input type="text" class="form-control" id="exampleInputId" placeholder="username" name="username">

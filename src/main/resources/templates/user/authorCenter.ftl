@@ -19,16 +19,16 @@
 </head>
 <body>
 <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
-<a href="index.ftl" style="margin-left: 1100px">返回首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="/user/userInfo">个人资料</a>
+<a href="${request.contextPath}/user/index" style="margin-left: 1100px">返回首页</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+<#--<a href="/user/userInfo">个人资料</a>-->
 <div>
     <h2>作者详情：</h2>
-    <#if Session["user"]??>
+    <#if userInfo??>
         用户头像<img src="../images/298955724.jpeg" alt="..." class="img-circle" style="border:2px solid black;"><br><br>
-        用户名：<span style="font-family:verdana;font-size:80%;color:green">${Session.user.username}</span><br><br>
+        用户名：<span style="font-family:verdana;font-size:80%;color:green">${userInfo.username}</span><br><br>
         个性签名:<span style="font-family:verdana;font-size:80%;color:green">
-      <#if Session.user.userSign??>
-          ${Session.user.userSign}
+      <#if userInfo.userSign??>
+          ${userInfo.userSign}
       <#else >
           未编辑
       </#if>
@@ -36,8 +36,8 @@
     </span><br><br>
 
         发布文章数:
-        <#if Session.user.articleNums??>
-            ${Session.user.articleNums}
+        <#if userInfo.articleNums??>
+            ${userInfo.articleNums}
         <#else >
             未上传文章
         </#if>
@@ -49,84 +49,70 @@
 
         <tr>
             <td>#</td>
-
             <td>文章标题</td>
             <td>标签</td>
-            <td>发布时间</td>
+            <td>关键字</td>
+            <td>最后更新时间</td>
             <td>浏览量</td>
         </tr>
+        <#if pageList??>
+        <#list pageList as article>
         <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
-        </tr>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
 
+                <td>${(pageNum-1)*pageSize+(article ?index+1)}</td>
+                <td>${article.title}</td>
+                <td>
+                    <#if article.isOriginal==0>
+                    原创
+                        <#else >
+                        非原创
+                    </#if>
+                </td>
+                <td>${article.keyWord}</td>
+                <td>
+                    ${(article.updateTime*1000)?number_to_datetime}</td>
+                <td>
+                    <#if article.browseNums??>
+                        ${article.browseNums}
+                        <#else>
+                        无
+                    </#if>
+                </td>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>1000000000</td>
-
-        </tr>
-
-
+        </#list>
+        </#if>
     </table>
+
     <nav aria-label="Page navigation">
+
         <ul class="pagination">
+            <#if pageNum??>
+             <#if pageNum gt 1><!--如果有上一页-->
             <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                <a href="${request.contextPath}/user/findAuthor?uid=${uid}&pageNum=${pageNum-1}" aria-label="Previous">
+                    <span aria-hidden="true">上一页</span>
                 </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
+            </#if>
+            <#if nums??>
+                <#list nums as num>
+                    <#if pageNum == num>
+                        <li class="active"><a href="${request.contextPath}/user/findAuthor?uid=${uid}&pageNum=${pageNum}">${pageNum}</a></li>
+                    <#else >
+                        <li><a href="${request.contextPath}/user/findAuthor?uid=${uid}&pageNum=${num}">${num}</a></li>
+                    </#if>
+
+                </#list>
+            </#if>
+            <!---->
+            <#if pageNum lt pages >
+                <li>
+                    <a href="${request.contextPath}/user/findAuthor?uid=${uid}&pageNum=${pageNum+1}" aria-label="Next">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
+            </#if>
+            </#if>
         </ul>
     </nav>
 

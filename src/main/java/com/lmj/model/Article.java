@@ -3,7 +3,7 @@ package com.lmj.model;
 public class Article {
     private String title;//文章标题
     private String keyWord;//关键字：Java，python，生活，感悟，
-    private  Integer isOriginal;//0.原创,1.非原创
+    private  Integer isOriginal;//0.原创,1.非原创 标签
     private Long createTime;//创建时间
     private Integer updateTime;//更新时间
     private String text;//正文

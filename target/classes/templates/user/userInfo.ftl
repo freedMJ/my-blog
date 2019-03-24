@@ -25,7 +25,7 @@
   </head>
   <body>
   <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
-  <a href="index.ftl" style="margin-left: 900px">返回首页</a>
+  <a href="${request.contextPath}/user/index" style="margin-left: 900px">返回首页</a>
     
     <div style="width: 600px;height: 800px" id="registerDIV">
       <h1>用户详细信息</h1>
