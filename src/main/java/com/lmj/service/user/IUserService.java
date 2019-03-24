@@ -19,4 +19,6 @@ public interface IUserService {
     void updateUserRelName(Integer id,String relName);
     //修改个人签名
     void updateUserSign(Integer id,String userSign);
+    //根据用户id查找用户名
+    String findUserNameById(int id);
 }

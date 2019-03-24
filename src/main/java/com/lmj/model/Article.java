@@ -5,7 +5,7 @@ public class Article {
     private String keyWord;//关键字：Java，python，生活，感悟，
     private  Integer isOriginal;//0.原创,1.非原创 标签
     private Long createTime;//创建时间
-    private Integer updateTime;//更新时间
+    private Long updateTime;//更新时间
     private String text;//正文
     private Integer browseNums;//浏览量
     private Integer uid ;//用户id
@@ -13,7 +13,7 @@ public class Article {
     public Article() {
     }
 
-    public Article(String title, String keyWord, Integer isOriginal, Long createTime, Integer updateTime, String text, Integer browseNums, Integer uid) {
+    public Article(String title, String keyWord, Integer isOriginal, Long createTime, Long updateTime, String text, Integer browseNums, Integer uid) {
         this.title = title;
         this.keyWord = keyWord;
         this.isOriginal = isOriginal;
@@ -56,11 +56,11 @@ public class Article {
         this.createTime = createTime;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 

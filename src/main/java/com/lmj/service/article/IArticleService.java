@@ -20,4 +20,6 @@ public interface IArticleService {
     List<Article> findUserAllArticleByUid(Integer uid);
     //pageHelper分页查询该用户的所有文章
    List<Article> findUserAllArticleByUidPage(int uid,int pageNum,int pageSize);
+    //根据文章标题得到文章详情
+    ArticleInfo findArticleInfoByTitle(String title);
 }

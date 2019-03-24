@@ -20,46 +20,51 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../js/wangEditor.min.js"></script>
     <script>
-      $(document).ready(function () {
-          alert("aaaa")
-        var E = window.wangEditor;
-        var editor = new E('#editor');
-        editor.customConfig.zIndex = 100;
-        editor.create();
-        document.getElementById('but').addEventListener('click', function () {
-          var text=editor.txt.html()
-          var title=$("#title").val();
-          var keyWord=$("#keyWord").val();
-          var isOriginal=$("#isOriginal").val();
-          //var createTime=$("#createTime").val();
-          //var updateTime=$("#updateTime").val();
-          var jsonDate={
-            "title":title,
-            "keyWord":keyWord,
-            "isOriginal":isOriginal,
-            //"createTime":createTime,
-            //"updateTime":updateTime,
-            "text":text
-          }
-          $.ajax({
-            type:"post",
-            url:"/article/uploadArticle",
-            contentType:"application/json",
-            data:JSON.stringify(jsonDate),
-              success:function(data){
-                alert(data);
-             }
-          })
-          }, false)
+        $(function(){
+            var E = window.wangEditor;
+            var editor = new E('#editor');
+            editor.customConfig.zIndex = 100;
+            editor.create();
+            $("#but").click(function(){
 
-        // 或者 var editor = new E( document.getElementById('editor') )
+                var text=editor.txt.html()
+                var title=$("#title").val();
+                var keyWord=$("#keyWord").val();
+                var isOriginal=$("#isOriginal").val();
+                if(title.length<=0){
+                    alert("请输入文章标题")
+                }else if(keyWord.length<=0){
+                    alert("请输入关键字")
+                }else if(isOriginal!=0&isOriginal!=1){
+                    alert("请确定是否是原创")
+                }else if(text.length<=11){
+                    alert("请输入正文内容")
+                }else{
+                    var jsonData={
+                        "title":title,
+                        "keyWord":keyWord,
+                        "isOriginal":isOriginal,
+                        "text":text
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:"/article/uploadArticle",
+                        data:JSON.stringify(jsonData),
+                        dataType:"json",
+                        contentType:"application/json",
+                        success:function(data){
+                            $("#isSuccess").html(data.msg)
 
-        //document.getElementById('but').addEventListener('click', function () {
-        // 读取 html
-        //alert(editor.txt.html())
-        //}, false)
+                    }
+                        }
+                    )
+                }
 
-      });
+            })
+
+
+
+        })
 
     </script>
   </head>
@@ -73,7 +78,7 @@
 
     </#if>
     <h1>文章编写：</h1>
-    <form>
+
     标题<input type="text" name="title" id="title">
     关键字<input type="text" name="keyWord" id="keyWord">
     标签<select id="isOriginal">
@@ -82,16 +87,13 @@
         <option value="1">非原创</option>
     </select>
    <button id="but">提交</button>
-    <#if article??>
-    adasdasdasdas
-    <span style="color:red;">${errMsg}</span>
-    </#if></br></br>
+        <span id="isSuccess" style="color: green"></span>
+   </br></br>
      <p>请在下方输入文章正文内容:</p>
-        <textarea >
     <div id="editor">
-       
+
     </div>
-    </form>
+
 
 
 

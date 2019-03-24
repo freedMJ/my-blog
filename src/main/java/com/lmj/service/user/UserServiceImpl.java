@@ -54,5 +54,11 @@ public class UserServiceImpl implements IUserService {
         userMapper.updateUserSign(id, userSign);
     }
 
+    @Override
+    public String findUserNameById(int id) {
+
+        return userMapper.findUserNameById(id);
+    }
+
 
 }

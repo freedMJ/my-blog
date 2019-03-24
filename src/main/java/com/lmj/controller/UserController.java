@@ -2,6 +2,7 @@ package com.lmj.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.lmj.model.Article;
 import com.lmj.model.ArticleInfo;
 import com.lmj.model.User;
 import com.lmj.service.article.IArticleService;
@@ -43,7 +44,7 @@ public class UserController {
             model.addAttribute("isLogin","notLogin");//true:登陆，false：未登陆
         }
 
-
+        //分页
         Page page = (Page) articleService.findArticleInfoPage(pageNum,pageSize);
         model.addAttribute("page",page);
         model.addAttribute("pageNum",pageNum);
@@ -90,9 +91,10 @@ public class UserController {
             model.addAttribute("errMsg","该用户不存在");
             return "user/login";
         }else{
+             User new_user = userService.findUserByUserName(username);
             //登陆成功，跳转到首页，用户信息存进session
             HttpSession session = request.getSession( );
-            session.setAttribute("user",ret_user);
+            session.setAttribute("user",new_user);
             return "redirect:/user/index";
         }
     }
@@ -105,10 +107,21 @@ public class UserController {
     }
     //进入用户中心
     @GetMapping("userCenter")
-    public String userCenter(HttpServletRequest request){
+    public String userCenter(HttpServletRequest request,Model model,@RequestParam(name="pageNum",defaultValue = "1") int pageNum){
         HttpSession session = request.getSession();
         User user =(User)session.getAttribute("user");
-
+        model.addAttribute("user",user);
+        int uid = user.getId();
+        Page page = (Page) articleService.findUserAllArticleByUidPage(uid,pageNum,pageSize);
+        int pages=page.getPages();
+        model.addAttribute("pageList",page);//查到的分页文章数据
+        model.addAttribute("pages",pages);//总的分页数
+        model.addAttribute("pageNum",pageNum);//当前页
+        model.addAttribute("pageSize",pageSize);//每页允许显示的文章数量
+        //得到分页数目列表
+        PageNumArray pageNumArray = new PageNumArray();
+        int[] nums = pageNumArray.getPageNumArray(pageNum, pages);
+        model.addAttribute("nums",nums);
         return "user/userCenter";
     }
     //进入用户详细情况
@@ -116,6 +129,7 @@ public class UserController {
     public String userInfo(HttpServletRequest request){
         HttpSession session = request.getSession();
         User user =(User)session.getAttribute("user");
+
 
         return "user/userInfo";
     }
@@ -206,9 +220,5 @@ public class UserController {
 
         return "user/authorCenter";
     }
-    //查看文章详情
-    @GetMapping("findArticle")
-    public String findArticle(){
-        return "article/article";
-    }
+
 }

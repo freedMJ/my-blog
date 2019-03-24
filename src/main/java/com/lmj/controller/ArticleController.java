@@ -1,8 +1,10 @@
 package com.lmj.controller;
 
 import com.lmj.model.Article;
+import com.lmj.model.ArticleInfo;
 import com.lmj.model.User;
 import com.lmj.service.article.ArticleServiceImpl;
+import com.lmj.service.user.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ public class ArticleController {
 
     @Autowired
     private ArticleServiceImpl articleService;
+    @Autowired
+    private UserServiceImpl userService;
     //上传文件
     @GetMapping("uploadArticle")
     public String uploadArticle(){
@@ -25,26 +29,38 @@ public class ArticleController {
         return "article/wirter";
     }
     @PostMapping("uploadArticle")
+    @ResponseBody
     public String uploadArticla(@RequestBody Article article, HttpServletRequest request, Model model){
         HttpSession session =  request.getSession();
         User user=(User)session.getAttribute("user");
-        System.out.println(article.getIsOriginal());
+        String msg=null;
         if(article.getTitle().length()<=0){
-            model.addAttribute("errMsg","文章标题不能为空");
-            System.out.println("asdas");
-            return "文章标题不能为空";
+            msg="文章标题不能为空";
         }else if(article.getIsOriginal()!=0&article.getIsOriginal()!=1){
-            System.out.println("22222");
-            model.addAttribute("errMsg","请输入正确的文章标签：0.原创，1.非原创");
-            return "请输入正确的文章标签：0.原创，1.非原创";
+            msg="请输入正确的文章标签：0.原创，1.非原创";
+        }else{
+            Long createTime =new Date().getTime();
+            Long updateTime =new Date().getTime();
+            article.setCreateTime(createTime);
+            article.setUpdateTime(updateTime);
+            article.setUid(user.getId());
+            articleService.saveArticle(article);
+            msg="上传文章成功";
         }
-        Long createTime =new Date().getTime();
-        article.setCreateTime(createTime);
-        System.out.println("33333");
-        System.out.println(article.getText());
-        article.setUid(user.getId());
-        System.out.println(article);
-        articleService.saveArticle(article);
-        return "aaa";
+        msg = "{\"msg\":\""+msg+"\"}";
+        return msg;
+    }
+
+    //查看文章详情
+    @GetMapping("findArticle")
+    public String findArticle(@RequestParam(name="title",defaultValue = " ")String title,Model model){
+        if(title.length()>0){
+            ArticleInfo articleInfo = articleService.findArticleInfoByTitle(title);
+            String username=userService.findUserNameById(articleInfo.getUid());
+            articleInfo.setUsername(username);
+            model.addAttribute("articleInfo",articleInfo);
+
+        }
+        return "article/article";
     }
 }

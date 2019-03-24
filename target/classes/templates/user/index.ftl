@@ -56,7 +56,7 @@
        <a href="${request.contextPath}/user/userCenter">欢迎你：${user.username}</a>&nbsp&nbsp&nbsp&nbsp
         <a href="${request.contextPath}/user/quit">退出</a>
         <#else >
-          <a href="${request.contextPath}/user/register">注册</a>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="${request.contextPath}/user/login.ftl" style="left: 1128px">登录</a>
+          <a href="${request.contextPath}/user/register">注册</a>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="${request.contextPath}/user/login" style="left: 1128px">登录</a>
       </#if>
   </div>
     <div>
@@ -83,7 +83,7 @@
         </td>
         <td>
             <!--跳转文章详情-->
-            <a href="${request.contextPath}/user/findArticle?title=${article.title}">${article.title}</a>
+            <a href="${request.contextPath}/article/findArticle?title=${article.title}">${article.title}</a>
         </td>
         <td>
             <#if article.isOriginal==0>
@@ -95,14 +95,14 @@
         <td>
 
             <#if article.createTime??>
-                ${(article.createTime*1000)?number_to_datetime}
+                ${(article.createTime)?number_to_datetime}
             <#else >
                 无
             </#if>
         </td>
         <td>
             <#if article.updateTime??>
-                ${(article.updateTime*1000)?number_to_datetime}
+                ${(article.updateTime)?number_to_datetime}
             <#else >
                 无
             </#if>

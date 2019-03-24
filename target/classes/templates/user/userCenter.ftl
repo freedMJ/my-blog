@@ -44,100 +44,85 @@
 
     </#if>
     <br><br>
-    <a href="%{request.contextPath}/article/uploadArticle">上传文件</a><br>
+    <a href="${request.contextPath}/article/uploadArticle">上传文件</a><br>
      文章列表：
      <table class="table table-striped">
-
     <tr>
     <td>#</td>
-    
     <td>文章标题</td>
     <td>标签</td>
+      <td>关键字</td>
     <td>发布时间</td>
+      <td>更新时间</td>
     <td>浏览量</td>
     <td>管理</td>
-
     </tr>
-    <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-     <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-     <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-     <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-     <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-     <tr>
-    <td>1</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>xxx</td>
-    <td>1000000000</td>
-    <td><button>修改</button>&nbsp&nbsp<button>删除</button></td>
-    </tr>
-   
-    
+       <#if pageList??>
+         <#list pageList as article>
+           <tr>
+             <td>${(pageNum-1)*pageSize+(article ?index+1)}</td>
+             <td><a href="${request.contextPath}/article/findArticle?title=${article.title}">${article.title}</a></td>
+             <td>
+               <#if article.isOriginal==0>
+                 原创
+               <#else >
+                 非原创
+               </#if>
+             </td>
+             <td>${article.keyWord}</td>
+             <td>
+               ${(article.createTime)?number_to_datetime}</td>
+             <td>
+               <#if article.updateTime??>
+                 ${(article.updateTime)?number_to_datetime}
+                 <#else >
+                 无
+               </#if>
+             </td>
+             <td>
+               <#if article.browseNums??>
+                 ${article.browseNums}
+               <#else>
+                 无
+               </#if>
+             </td>
+           </tr>
+         </#list>
+       </#if>
 </table>
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
 
+    <nav aria-label="Page navigation">
+
+      <ul class="pagination">
+        <#if pageNum??>
+          <#if pageNum gt 1><!--如果有上一页-->
+            <li>
+              <a href="${request.contextPath}/user/userCenter?pageNum=${pageNum-1}" aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+              </a>
+            </li>
+          </#if>
+          <#if nums??>
+            <#list nums as num>
+              <#if pageNum == num>
+                <li class="active"><a href="${request.contextPath}/user/userCenter?pageNum=${pageNum}">${pageNum}</a></li>
+              <#else >
+                <li><a href="${request.contextPath}/user/userCenter?pageNum=${num}">${num}</a></li>
+              </#if>
+
+            </#list>
+          </#if>
+          <!---->
+          <#if pageNum lt pages >
+            <li>
+              <a href="${request.contextPath}/user/userCenter?pageNum=${pageNum+1}" aria-label="Next">
+                <span aria-hidden="true">下一页</span>
+              </a>
+            </li>
+          </#if>
+        </#if>
+      </ul>
+    </nav>
      </div>
 
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

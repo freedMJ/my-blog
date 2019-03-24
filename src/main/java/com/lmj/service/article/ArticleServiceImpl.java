@@ -60,6 +60,11 @@ public class ArticleServiceImpl implements IArticleService {
         pageData.setItems(allArticle);
         return pageData.getItems();
     }
+    //根据文章标题得到文章详情
+    @Override
+    public ArticleInfo findArticleInfoByTitle(String title) {
+        return articleMapper.findArticleInfoByTitle(title);
+    }
 //    @Override
 // 2     public List<Item> findItemByPage(int currentPage,int pageSize) {
 //        3         //设置分页信息，分别是当前页数和每页显示的总记录数【记住：必须在mapper接口中的方法执行之前设置该分页信息】

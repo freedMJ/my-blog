@@ -23,6 +23,6 @@ public interface ArticleMapper {
     //用户文章总记录数
     int userAllArticleCountItme(Integer uid);
     //根据文章标题得到文章详情
-    Article findArticleInfoByTitle(String title);
+    ArticleInfo findArticleInfoByTitle(String title);
 
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>个人中心</title>
+    <title>作者详情</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
         <tr>
 
                 <td>${(pageNum-1)*pageSize+(article ?index+1)}</td>
-                <td>${article.title}</td>
+                <td><a href="${request.contextPath}/article/findArticle?title=${article.title}">${article.title}</a></td>
                 <td>
                     <#if article.isOriginal==0>
                     原创
@@ -70,7 +70,7 @@
                 </td>
                 <td>${article.keyWord}</td>
                 <td>
-                    ${(article.updateTime*1000)?number_to_datetime}</td>
+                    ${(article.updateTime)?number_to_datetime}</td>
                 <td>
                     <#if article.browseNums??>
                         ${article.browseNums}

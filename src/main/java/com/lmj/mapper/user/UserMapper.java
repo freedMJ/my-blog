@@ -21,4 +21,6 @@ public interface UserMapper {
     //修改个人签名
     void updateUserSign(@Param("id")Integer id,@Param("userSign")String userSign);
     //查找发布的文章数
+    //根据id查找用户名
+    String findUserNameById(int id);
 }

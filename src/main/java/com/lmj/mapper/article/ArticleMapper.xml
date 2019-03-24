@@ -22,6 +22,7 @@
 
 
     <!--pageHelper分页-->
+    <!--查询所有用户的所有文章-->
     <select id="findArticleInfoPage" resultType="com.lmj.model.ArticleInfo">
         select u.username,a.title,a.isOriginal,a.keyWord,a.createTime,a.updateTime,a.browseNums,a.uid from user as u,article as a  where u.id=a.uid
     </select>
@@ -31,15 +32,18 @@
     </select>
     <!--根据uid查找用户-->
     <select id="findUserByUid" parameterType="java.lang.Integer" resultType="com.lmj.model.User">
-        select u.username,u.userSign,u.headPhoto,u.articleNum from user as u where u.id=#{uid}
+        select u.username,u.userSign,u.headPhoto,u.articleNums from user as u where u.id=#{uid}
     </select>
     <!--查询用户的所有文章-->
     <select id="findUserAllArticleByUid" parameterType="java.lang.Integer" resultType="com.lmj.model.Article">
-        select a.title,a.isOriginal,a.keyWord,a.updateTime,a.browseNums from article as a where uid=#{uid}
+        select a.title,a.isOriginal,a.keyWord,a.createTime,a.updateTime,a.browseNums from article as a where uid=#{uid}
     </select>
     <!--统计用户所有文章数-->
     <select id="userAllArticleCountItme" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select count(*) from article where uid=#{uid}
     </select>
     <!--根据文章标题查看文章详情-->
+    <select id="findArticleInfoByTitle" parameterType="java.lang.String" resultType="com.lmj.model.ArticleInfo">
+        select a.title,a.keyWord,a.isOriginal,a.updateTime,a.browseNums,a.text,a.uid from article as a where a.title=#{title}
+    </select>
 </mapper>
