@@ -22,4 +22,14 @@ public interface IArticleService {
    List<Article> findUserAllArticleByUidPage(int uid,int pageNum,int pageSize);
     //根据文章标题得到文章详情
     ArticleInfo findArticleInfoByTitle(String title);
+    //访问文章根据文章标题浏览量加一
+   void updateArticleBrowseNumsByTitle(String title);
+    //根据文章标题查找文章标题是否存在
+    String findisExistTitleByTitle(String title);
+
+    List<ArticleInfo> findIndexAllArticle(String username, String keyWord, String title, int isOriginal,int pageNum,int pageSize);
+//    //首页搜索文章列表功能
+//    ArticleInfo findIndexAllArticle(String username, String keyWord, String title,int isOriginal );
+//    //首页搜索文章总记录数
+//    int indexCountItem(String username,String keyWord, String title,int isOriginal );
 }

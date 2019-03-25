@@ -65,6 +65,40 @@ public class ArticleServiceImpl implements IArticleService {
     public ArticleInfo findArticleInfoByTitle(String title) {
         return articleMapper.findArticleInfoByTitle(title);
     }
+    //访问文章根据文章标题浏览量加一
+    @Override
+    public void updateArticleBrowseNumsByTitle(String title) {
+        articleMapper.updateArticleBrowseNumsByTitle(title);
+    }
+    //根据文章标题查找文章标题是否存在
+    @Override
+    public String findisExistTitleByTitle(String title) {
+        return articleMapper.findisExistTitleByTitle(title);
+    }
+
+
+    //pageHelper分页查询首页条件搜索文章
+    //首页搜索文章列表功能
+//    @Override
+//    public ArticleInfo findIndexAllArticle(String username, String keyWord, String title, int isOriginal) {
+//        return articleMapper.findIndexAllArticle(username, keyWord, title, isOriginal);
+//    }
+//
+//    @Override
+//    public int indexCountItem(String username, String keyWord, String title, int isOriginal) {
+//        return articleMapper.indexCountItem(username, keyWord, title, isOriginal);
+//    }
+    //pageHelper分页查询该用户的所有文章
+    @Override
+    public List<ArticleInfo> findIndexAllArticle(String username, String keyWord, String title, int isOriginal,int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<ArticleInfo> allArticle = articleMapper.findIndexAllArticle(username, keyWord, title, isOriginal);
+        int articleCountNums = articleMapper.indexCountItem(username, keyWord, title, isOriginal);
+        PageBean<ArticleInfo> pageData = new PageBean<ArticleInfo>(pageNum,pageSize,articleCountNums);
+        pageData.setItems(allArticle);
+        return pageData.getItems();
+    }
+
 //    @Override
 // 2     public List<Item> findItemByPage(int currentPage,int pageSize) {
 //        3         //设置分页信息，分别是当前页数和每页显示的总记录数【记住：必须在mapper接口中的方法执行之前设置该分页信息】

@@ -53,11 +53,16 @@ public class UserServiceImpl implements IUserService {
     public void updateUserSign(Integer id, String userSign) {
         userMapper.updateUserSign(id, userSign);
     }
-
+    //根据id查找用户名
     @Override
     public String findUserNameById(int id) {
 
         return userMapper.findUserNameById(id);
+    }
+    //每次登陆用户发表一次文章，发布文章数增加一
+    @Override
+    public void updateArticleNumsbyUserName(String username) {
+        userMapper.updateArticleNumsbyUserName(username);
     }
 
 

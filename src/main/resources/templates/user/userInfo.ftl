@@ -47,7 +47,7 @@
         </td>
         <td>不可修改</td>
       </tr>
-        <form action="%{request.contextPath}/user/updateUserPassword" method="post">
+        <form action="${request.contextPath}/user/updateUserPassword" method="post">
        <tr>
         <td>密码</td>
         <td>
@@ -68,7 +68,7 @@
         <#if errUpdatePassword??>
             <spen style="color: red">${errUpdatePassword}</spen>
         </#if>
-        <form action="%{request.contextPath}/user/updateUserEmail" method="post">
+        <form action="${request.contextPath}/user/updateUserEmail" method="post">
        <tr>
            <td>邮箱地址</td>
         <td>
@@ -86,7 +86,7 @@
         <#if updateEmail??>
             <spen style="color: green">${updateEmail}</spen>
         </#if>
-        <form action="%{request.contextPath}/user/updateUserPhoneNum" method="post">
+        <form action="${request.contextPath}/user/updateUserPhoneNum" method="post">
        <tr>
         <td>电话</td>
         <td>
@@ -104,7 +104,7 @@
         <#if updatePhoneNum??>
             <spen style="color: green">${updatePhoneNum}</spen>
         </#if>
-        <form action="%{request.contextPath}/user/updateUserRelName" method="post">
+        <form action="${request.contextPath}/user/updateUserRelName" method="post">
       <tr>
         <td>真实姓名</td>
         <td>
@@ -123,7 +123,7 @@
             <spen style="color: green">${updateRelName}</spen>
         </#if>
 
-        <form action="%{request.contextPath}/user/updateUserSign" method="post">
+        <form action="${request.contextPath}/user/updateUserSign" method="post">
       <tr>
         <td>个人签名</td>
         <td>
@@ -144,7 +144,7 @@
       <#--&lt;#&ndash;<tr>&ndash;&gt;??????-->
         <tr>
         <td>头像</td>
-        <td><img src="%{request.contextPath}/images/298955724.jpeg" alt="..." class="img-circle" style="border:2px solid black;text-align: center;"></td>
+        <td><img src="${request.contextPath}/images/298955724.jpeg" alt="..." class="img-circle" style="border:2px solid black;text-align: center;"></td>
         <td><button>修改</button></td>
       </tr>
         <td>发表文章数</td>

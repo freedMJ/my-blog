@@ -23,30 +23,57 @@
 }
     </style>
       <#--分页代码-->
+      <script>
+          $(function(){
+              $("#but").click(function(){
+                  var username=$("#username").val();
+                  var keyWord=$("#keyWord").val();
+                  var title=$("#title").val();
+                  var isOriginal =$("#isOriginal").val();
+                  var jsonData={
+                      "username":username,
+                      "keyWord":keyWord,
+                      "title":title,
+                      "isOriginal":isOriginal
+                  };
+                  $.ajax({
+                      type:"get",
+                      url:"user/index",
+                      data:JSON.stringify(jsonData),
+                      contentType:"application/json"
+                  })
+              })
+          })
+      </script>
 
   </head>
   <body>
     <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
     
-   <form class="form-inline" id="form">
+   <form class="form-inline" id="form" action="#" method="get">
     <div style="width:1400px;left: 100px ">
   <div class="form-group">
     <label for="exampleInputName2">作者</label>
-    <input type="text" class="form-control" id="author" placeholder="文章作者或上传用户">
+    <input type="text" class="form-control" id="author" placeholder="文章作者或上传用户" name="username">
   </div>
   <div class="form-group">
     <label for="exampleInputName2">关键词</label>
-    <input type="text" class="form-control" id="keyword" placeholder="标题关键字">
+    <input type="text" class="form-control" id="keyword" placeholder="标题关键字" name="keyWord">
   </div>
   <div class="form-group">
-    <label for="exampleInputName2">标签</label>
-    <input type="text" class="form-control" id="title" placeholder="文章分类">
+    <label for="exampleInputName2">文章标题</label>
+    <input type="text" class="form-control" id="title" placeholder="文章标题" name="title">
   </div>
   <div class="form-group">
-    <label for="exampleInputName2">发布时间</label>
-    <input type="text" class="form-control" id="title" placeholder="xxxx-xx-xx xx:xx:xx">
+    <label for="exampleInputName2">是否原创</label>
+      <select class="form-control" name="isOriginal">
+          <option disabled selected="selected">--请选择是否原创--</option>
+          <option value="0">原创</option>
+          <option value="1">非原创</option>
+
+      </select>
   </div>
-  <button type="submit" class="btn btn-default">搜索</button>
+  <button type="submit" class="btn btn-default" id="but">搜索</button>
     </div>
    </form>
   <div style="float: right;">
@@ -70,8 +97,8 @@
     <td>作者</td>
     <td >文章标题</td>
     <td>标签</td>
-    <td>发布时间</td>
-    <td>更新时间</td>
+    <td>关键字</td>
+    <td>最后更新时间</td>
     <td>浏览量</td>
     </tr>
     <#list page as article>
@@ -94,8 +121,8 @@
         </td>
         <td>
 
-            <#if article.createTime??>
-                ${(article.createTime)?number_to_datetime}
+            <#if article.keyWord??>
+                ${article.keyWord}
             <#else >
                 无
             </#if>
@@ -125,7 +152,7 @@
         <ul class="pagination">
             <#if pageNum gt 1><!--如果有上一页-->
             <li>
-                <a href="${request.contextPath}/user/index?pageNum=${pageNum-1}" aria-label="Previous">
+                <a href="${request.contextPath}/user/index?pageNum=${pageNum-1}&username=${username}&title=${title}&keyWord=${keyWord}&isOriginal=${isOriginal}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
@@ -133,9 +160,9 @@
             <#if nums??>
             <#list nums as num>
                 <#if pageNum ==num>
-                    <li class="active"><a href="${request.contextPath}/user/index?pageNum=${pageNum}">${pageNum}</a></li>
+                    <li class="active"><a href="${request.contextPath}/user/index?pageNum=${pageNum}&username=${username}&title=${title}&keyWord=${keyWord}&isOriginal=${isOriginal}">${pageNum}</a></li>
                     <#else >
-                        <li><a href="${request.contextPath}/user/index?pageNum=${num}">${num}</a></li>
+                        <li><a href="${request.contextPath}/user/index?pageNum=${num}&username=${username}&title=${title}&keyWord=${keyWord}&isOriginal=${isOriginal}">${num}</a></li>
                 </#if>
 
             </#list>
@@ -143,7 +170,7 @@
             <!---->
             <#if pageNum lt pages >
                 <li>
-                    <a href="${request.contextPath}/user/index?pageNum=${pageNum+1}" aria-label="Next">
+                    <a href="${request.contextPath}/user/index?pageNum=${pageNum+1}&username=${username}&title=${title}&keyWord=${keyWord}&isOriginal=${isOriginal}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

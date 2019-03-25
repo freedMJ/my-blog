@@ -23,4 +23,6 @@ public interface UserMapper {
     //查找发布的文章数
     //根据id查找用户名
     String findUserNameById(int id);
+    //每次登陆用户发表一次文章文章数增加一
+    void updateArticleNumsbyUserName(String username);
 }

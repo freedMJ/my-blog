@@ -21,7 +21,7 @@ public class WebConfigurer implements WebMvcConfigurer {
     //注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/user/index","/user/login","/user/register","/user/findAuthor","/user/findArticle","/user/allArticleInfo");
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").excludePathPatterns("/user/index","/user/login","/user/register","/user/findAuthor","/article/findArticle","/user/allArticleInfo");
     }
     //配置静态资源
     @Override

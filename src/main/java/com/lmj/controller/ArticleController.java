@@ -34,7 +34,12 @@ public class ArticleController {
         HttpSession session =  request.getSession();
         User user=(User)session.getAttribute("user");
         String msg=null;
-        if(article.getTitle().length()<=0){
+        //判断是有已经有了重名的文章名
+        String title=article.getTitle();
+        String is_title = articleService.findisExistTitleByTitle(title);
+        if(is_title!=null){
+            msg="已经存在文章标题，请修改文章标题";
+        }else if(article.getTitle().length()<=0){
             msg="文章标题不能为空";
         }else if(article.getIsOriginal()!=0&article.getIsOriginal()!=1){
             msg="请输入正确的文章标签：0.原创，1.非原创";
@@ -44,7 +49,13 @@ public class ArticleController {
             article.setCreateTime(createTime);
             article.setUpdateTime(updateTime);
             article.setUid(user.getId());
+            article.setBrowseNums(0);
             articleService.saveArticle(article);
+            //用户文章数加一,更新session中的user
+            String username = user.getUsername();
+            userService.updateArticleNumsbyUserName(username);
+            userService.findUserByUserName(username);
+            session.setAttribute("user",userService.findUserByUserName(username));
             msg="上传文章成功";
         }
         msg = "{\"msg\":\""+msg+"\"}";
@@ -59,6 +70,7 @@ public class ArticleController {
             String username=userService.findUserNameById(articleInfo.getUid());
             articleInfo.setUsername(username);
             model.addAttribute("articleInfo",articleInfo);
+            articleService.updateArticleBrowseNumsByTitle(title);
 
         }
         return "article/article";

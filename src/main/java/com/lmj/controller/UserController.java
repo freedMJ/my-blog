@@ -34,7 +34,9 @@ public class UserController {
     int pageSize;
     //首页
     @GetMapping("index")
-    public String index(Model model,HttpServletRequest request,@RequestParam(name="pageNum",defaultValue ="1")int pageNum){
+    public String index(@RequestParam(name="username",defaultValue = "all") String username,@RequestParam(name = "keyWord",defaultValue = "all")String keyWord,
+                        @RequestParam(name="title",defaultValue = "all")String title,@RequestParam(name = "isOriginal",defaultValue = "3")int isOriginal,
+                        Model model,HttpServletRequest request,@RequestParam(name="pageNum",defaultValue ="1")int pageNum){
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         if(user!=null){
@@ -43,18 +45,37 @@ public class UserController {
         }else{
             model.addAttribute("isLogin","notLogin");//true:登陆，false：未登陆
         }
+        Page  page =null;
+        if("all".equals(username)&&"all".equals(keyWord)&&"all".equals(title)&&isOriginal==3){
+            //分页
+            page=(Page) articleService.findArticleInfoPage(pageNum,pageSize);
 
-        //分页
-        Page page = (Page) articleService.findArticleInfoPage(pageNum,pageSize);
-        model.addAttribute("page",page);
-        model.addAttribute("pageNum",pageNum);
-        model.addAttribute("pageSize",pageSize);
+        }else{
+            //分页
+            page= (Page) articleService.findIndexAllArticle(username,keyWord,title,isOriginal,pageNum,pageSize);
+            //调用工具类抽取的得到分页页码的数组
+        }
+        //            System.out.println("aaaa");
+        //调用工具类抽取的得到分页页码的数组
         int pages=page.getPages();//总的页数
         model.addAttribute("pages",pages);
-        //调用工具类抽取的得到分页页码的数组
         PageNumArray pageNumArray = new PageNumArray();
         int[] nums = pageNumArray.getPageNumArray(pageNum,pages);
         model.addAttribute("nums",nums);
+        model.addAttribute("page",page);
+        System.out.println(page);
+//            System.out.println("bbb");
+        model.addAttribute("username",username);
+        model.addAttribute("title",title);
+        model.addAttribute("keyWord",keyWord);
+        model.addAttribute("isOriginal",isOriginal);
+
+        model.addAttribute("pageNum",pageNum);
+        model.addAttribute("pageSize",pageSize);
+
+
+
+
         return "user/index";
     }
     //注册
@@ -65,18 +86,22 @@ public class UserController {
     }
 
     @PostMapping("register")
-    public String userRegister(@ModelAttribute("user") User user,Model model){
+    @ResponseBody
+    public String userRegister(@RequestBody User user){
         //先进数据库查询用户名是否已被注册
         User user2=userService.findUserByUserName(user.getUsername());
+        String msg=null;
         //用户已经存在
         if(user2!=null){
-            model.addAttribute("errMsg","用户名已经存在");
-            return "user/register";
+            msg="用户名已经存在";
         }else{//用户不存在，成功注册
+            //user.setArticleNums(0);
             userService.registerUser(user);
-            return "user/login";
-        }
+            msg="注册成功，请返回首页或进行登陆";
 
+        }
+        String data="{\"msg\":\""+msg+"\"}";
+        return data;
           }
 
     //登陆
@@ -213,7 +238,6 @@ public class UserController {
             //得到分页数目列表
             PageNumArray pageNumArray = new PageNumArray();
             int[] nums = pageNumArray.getPageNumArray(pageNum, pages);
-            System.out.println(Arrays.toString(nums));
             model.addAttribute("nums",nums);
 
         }

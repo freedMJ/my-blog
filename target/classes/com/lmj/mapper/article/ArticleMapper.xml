@@ -46,4 +46,50 @@
     <select id="findArticleInfoByTitle" parameterType="java.lang.String" resultType="com.lmj.model.ArticleInfo">
         select a.title,a.keyWord,a.isOriginal,a.updateTime,a.browseNums,a.text,a.uid from article as a where a.title=#{title}
     </select>
-</mapper>
+    <!--//更新文章访问量-->
+    <update id="updateArticleBrowseNumsByTitle" parameterType="java.lang.String" >
+        update article set browseNums = browseNums +1 where title = #{title}
+    </update>
+    <!--根据文章标题查找文章标题是否存在-->
+    <select id="findisExistTitleByTitle" parameterType="java.lang.String" resultType="java.lang.String">
+        select title from article where title = #{title}
+    </select>
+
+    <!--首页搜索文章列表功能-->
+    <select id="findIndexAllArticle"  resultType="com.lmj.model.ArticleInfo">
+       select u.username,a.title,a.isOriginal,a.keyWord,a.createTime,a.updateTime,a.browseNums,a.uid from user as u,article as a
+        where u.id=a.uid
+           <if test="username!='all'">
+                and u.username=#{username}
+           </if>
+           <if test="keyWord!='all'">
+               and a.keyWord=#{keyWord}
+           </if>
+           <if test="title!='all'">
+               and a.title=#{title}
+           </if>
+           <if test="isOriginal!=3">
+               and a.isOriginal=#{isOriginal}
+           </if>
+
+
+    </select>
+    <!--//首页搜索文章总记录数-->
+  <select id="indexCountItem" resultType="java.lang.Integer">
+      select count(*) from user as u,article as a
+     where u.id=a.uid
+          <if test="username!='all'">
+              and u.username=#{username}
+          </if>
+          <if test="keyWord!='all'">
+              and a.keyWord=#{keyWord}
+          </if>
+          <if test="title!='all'">
+              and a.title=#{title}
+          </if>
+          <if test="isOriginal!=3">
+              and a.isOriginal=#{isOriginal}
+          </if>
+
+  </select>
+ </mapper>

@@ -51,4 +51,8 @@
     <select id="findUserNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
         select username from user where id=#{id}
     </select>
+    <!--//每次登陆用户发表一次文章文章数增加一-->
+    <update id="updateArticleNumsbyUserName" parameterType="java.lang.String">
+        update user set articleNums = articleNums + 1 where username = #{username}
+    </update>
 </mapper>
