@@ -55,4 +55,8 @@
     <update id="updateArticleNumsbyUserName" parameterType="java.lang.String">
         update user set articleNums = articleNums + 1 where username = #{username}
     </update>
+    <!--//每次删除文章用户文章数减一-->
+    <update id="delArticleOnlyOne">
+        update user set articleNums = articleNums-1 where username=#{username}
+    </update>
 </mapper>

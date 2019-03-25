@@ -1,6 +1,7 @@
 package com.lmj.model;
 
 public class Article {
+    private int id;
     private String title;//文章标题
     private String keyWord;//关键字：Java，python，生活，感悟，
     private  Integer isOriginal;//0.原创,1.非原创 标签
@@ -13,7 +14,8 @@ public class Article {
     public Article() {
     }
 
-    public Article(String title, String keyWord, Integer isOriginal, Long createTime, Long updateTime, String text, Integer browseNums, Integer uid) {
+    public Article(int id, String title, String keyWord, Integer isOriginal, Long createTime, Long updateTime, String text, Integer browseNums, Integer uid) {
+        this.id = id;
         this.title = title;
         this.keyWord = keyWord;
         this.isOriginal = isOriginal;
@@ -22,6 +24,14 @@ public class Article {
         this.text = text;
         this.browseNums = browseNums;
         this.uid = uid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -91,7 +101,8 @@ public class Article {
     @Override
     public String toString() {
         return "Article{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", keyWord='" + keyWord + '\'' +
                 ", isOriginal=" + isOriginal +
                 ", createTime=" + createTime +

@@ -25,4 +25,6 @@ public interface UserMapper {
     String findUserNameById(int id);
     //每次登陆用户发表一次文章文章数增加一
     void updateArticleNumsbyUserName(String username);
+    //每次删除文章用户文章数减一
+    void delArticleOnlyOne(@Param("username")String username);
 }

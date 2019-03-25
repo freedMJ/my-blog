@@ -65,5 +65,10 @@ public class UserServiceImpl implements IUserService {
         userMapper.updateArticleNumsbyUserName(username);
     }
 
+    @Override
+    public void delArticleOnlyOne(String username) {
+        userMapper.delArticleOnlyOne(username);
+    }
+
 
 }

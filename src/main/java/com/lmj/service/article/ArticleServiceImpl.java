@@ -98,6 +98,21 @@ public class ArticleServiceImpl implements IArticleService {
         pageData.setItems(allArticle);
         return pageData.getItems();
     }
+    //根据文章标题删除文章记录
+    @Override
+    public void delArticleByTitle(String title) {
+        articleMapper.delArticleByTitle(title);
+    }
+    //根据文章标题修改文章
+    @Override
+    public Article findArticleById(int id) {
+        return articleMapper.findArticleById(id);
+    }
+
+    @Override
+    public  void updateUpdateArticleById(Long updateTime,String title, String keyWord,String text,int isOriginal,int id){
+        articleMapper.updateUpdateArticleById(updateTime, title, keyWord, text, isOriginal,id);
+    }
 
 //    @Override
 // 2     public List<Item> findItemByPage(int currentPage,int pageSize) {

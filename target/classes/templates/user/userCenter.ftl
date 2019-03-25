@@ -86,6 +86,10 @@
                  无
                </#if>
              </td>
+               <td>
+                   <a href="${request.contextPath}/user/updateArticle?id=${article.id}">修改</a>
+                   <a href="${request.contextPath}/user/delArticle?title=${article.title}">删除</a>
+               </td>
            </tr>
          </#list>
        </#if>

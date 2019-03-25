@@ -28,8 +28,12 @@ public interface IArticleService {
     String findisExistTitleByTitle(String title);
 
     List<ArticleInfo> findIndexAllArticle(String username, String keyWord, String title, int isOriginal,int pageNum,int pageSize);
-//    //首页搜索文章列表功能
-//    ArticleInfo findIndexAllArticle(String username, String keyWord, String title,int isOriginal );
-//    //首页搜索文章总记录数
-//    int indexCountItem(String username,String keyWord, String title,int isOriginal );
+    //根据文章标题删除文章记录
+    void delArticleByTitle(String title);
+    //根据文章标题修改文章
+    Article findArticleById(int id);
+    //根据文章标题更新更新时间
+    //根据文章标题更新更新文章
+    void updateUpdateArticleById(Long updateTime,String title, String keyWord,String text,int isOriginal,int id);
+
 }

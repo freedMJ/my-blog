@@ -16,11 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.server.PathParam;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Date;
+
 
 @Controller
 @RequestMapping("user")
@@ -47,15 +44,12 @@ public class UserController {
         }
         Page  page =null;
         if("all".equals(username)&&"all".equals(keyWord)&&"all".equals(title)&&isOriginal==3){
-            //分页
+            //无分页
             page=(Page) articleService.findArticleInfoPage(pageNum,pageSize);
-
         }else{
-            //分页
+            //搜索分页
             page= (Page) articleService.findIndexAllArticle(username,keyWord,title,isOriginal,pageNum,pageSize);
-            //调用工具类抽取的得到分页页码的数组
         }
-        //            System.out.println("aaaa");
         //调用工具类抽取的得到分页页码的数组
         int pages=page.getPages();//总的页数
         model.addAttribute("pages",pages);
@@ -63,19 +57,12 @@ public class UserController {
         int[] nums = pageNumArray.getPageNumArray(pageNum,pages);
         model.addAttribute("nums",nums);
         model.addAttribute("page",page);
-        System.out.println(page);
-//            System.out.println("bbb");
         model.addAttribute("username",username);
         model.addAttribute("title",title);
         model.addAttribute("keyWord",keyWord);
         model.addAttribute("isOriginal",isOriginal);
-
         model.addAttribute("pageNum",pageNum);
         model.addAttribute("pageSize",pageSize);
-
-
-
-
         return "user/index";
     }
     //注册
@@ -170,8 +157,9 @@ public class UserController {
         userService.updateUserPassword(user.getId(),password);
         model.addAttribute("updatePassword","更新密码成功");
         //做了修改要把session中的user更新
-        user.setPassword(password);
-        session.setAttribute("user",user);
+        String username = user.getUsername();
+        User new_user = userService.findUserByUserName(username);
+        session.setAttribute("user",new_user);
         return "/user/userInfo";
     }
     //修改邮箱
@@ -181,8 +169,9 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         userService.updateUserEmail(user.getId(),email);
         model.addAttribute("updateEmail","更新电子邮箱成功");
-        user.setEmail(email);
-        session.setAttribute("user",user);
+        String username = user.getUsername();
+        User new_user = userService.findUserByUserName(username);
+        session.setAttribute("user",new_user);
         return "/user/userInfo";
 
     }
@@ -193,8 +182,9 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         userService.updateUserPhoneNum(user.getId(),phoneNum);
         model.addAttribute("updatePhoneNum","更新个人电话成功");
-        user.setPhoneNum(phoneNum);
-        session.setAttribute("user",user);
+        String username = user.getUsername();
+        User new_user = userService.findUserByUserName(username);
+        session.setAttribute("user",new_user);
         return "/user/userInfo";
     }
     //修改真实姓名
@@ -204,8 +194,9 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         userService.updateUserRelName(user.getId(),relName);
         model.addAttribute("updateRelName","更新真实姓名成功");
-        user.setRelName(relName);
-        session.setAttribute("user",user);
+        String username = user.getUsername();
+        User new_user = userService.findUserByUserName(username);
+        session.setAttribute("user",new_user);
         return "/user/userInfo";
     }
     //修改个人签名
@@ -216,8 +207,9 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         userService.updateUserSign(user.getId(),userSign);
         model.addAttribute("updateUserSign","更新个人签名成功");
-        user.setUserSign(userSign);
-        session.setAttribute("user",user);
+        String username = user.getUsername();
+        User new_user = userService.findUserByUserName(username);
+        session.setAttribute("user",new_user);
         return "/user/userInfo";
     }
     //修改头像
@@ -239,10 +231,73 @@ public class UserController {
             PageNumArray pageNumArray = new PageNumArray();
             int[] nums = pageNumArray.getPageNumArray(pageNum, pages);
             model.addAttribute("nums",nums);
-
         }
-
         return "user/authorCenter";
+    }
+    //删除文章
+    @RequestMapping("delArticle")
+    public String delArticle(@RequestParam(name="title",defaultValue = " null") String title,HttpServletRequest request){
+        System.out.println(title);
+        if(!"null".equals(title)){
+            //文章表删除记录，用户表文章数减一
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            String username = user.getUsername();
+            articleService.delArticleByTitle(title);
+            userService.delArticleOnlyOne(username);
+            User new_user = userService.findUserByUserName(username);
+            session.setAttribute("user",new_user);
+        }
+        return "redirect:/user/userCenter";
+    }
+    //修改文章
+
+    @GetMapping("updateArticle")
+    public String updateArticle(@RequestParam(name="id",defaultValue = "null")int id,Model model){
+        if(!("null".equals(id))){
+            System.out.println(id);
+            Article article = articleService.findArticleById(id);
+            System.out.println(article);
+            model.addAttribute("article",article);
+        }
+        return "article/updateWirter";
+    }
+    @PostMapping("updateArticle")
+    @ResponseBody
+    public String updateArticle(@RequestBody Article article, HttpServletRequest request, Model model){
+        System.out.println("11111");
+        HttpSession session =  request.getSession();
+        User user=(User)session.getAttribute("user");
+        String username = user.getUsername();
+        String msg=null;
+        Long updateTime =new Date().getTime();
+        Integer isOriginal = article.getIsOriginal();
+        String keyWord = article.getKeyWord();
+        String text = article.getText();
+        //判断是有已经有了重名的文章名
+        String title=article.getTitle();
+        String is_title = articleService.findisExistTitleByTitle(title);
+        if(is_title!=null){
+            msg="已经存在文章标题，请修改文章标题";
+        }else if(title.length()<=0){
+            msg="文章标题不能为空";
+        }else if(keyWord.length()<=0){
+            msg="请输入文章关键字";
+        }else if(article.getIsOriginal()!=0&article.getIsOriginal()!=1){
+            msg="请输入正确的文章标签：0.原创，1.非原创";
+        }else if(text.length()<=11){
+            msg="请输入文章正文内容";
+        }else{
+            System.out.println("bbbbbb");
+            System.out.println(updateTime+"===="+title+"===="+keyWord+"===="+text+"==="+article.getId());
+            articleService.updateUpdateArticleById(updateTime,title,keyWord,text,isOriginal,article.getId());
+            System.out.println("aaaaaaa");
+            User new_user  = userService.findUserByUserName(username);
+            session.setAttribute("user",new_user);
+            msg="更新文章成功";
+        }
+        msg = "{\"msg\":\""+msg+"\"}";
+        return msg;
     }
 
 }

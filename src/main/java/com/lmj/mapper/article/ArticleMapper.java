@@ -33,4 +33,12 @@ public interface ArticleMapper {
     List<ArticleInfo> findIndexAllArticle(@Param("username") String username,@Param("keyWord") String keyWord, @Param("title") String title,@Param("isOriginal") int isOriginal );
     //首页搜索文章总记录数
     int indexCountItem(@Param("username") String username,@Param("keyWord") String keyWord, @Param("title") String title,@Param("isOriginal") int isOriginal );
+    //根据文章标题删除文章记录
+    void delArticleByTitle(@Param("title") String title);
+    //根据文章标题修改文章
+    Article findArticleById(@Param("id")int id);
+    //根据文章标题更新更新文章
+    void updateUpdateArticleById(@Param("updateTime")Long updateTime,@Param("title")String title,
+                             @Param("keyWord")String keyWord,@Param("text")String text,@Param("isOriginal")int isOriginal,@Param("id")int id);
+
 }
