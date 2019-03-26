@@ -69,7 +69,7 @@
     </script>
   </head>
   <body>
-    <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
+  <h1 id="head_title" style="text-align: center;">个人在线云笔记管理系统</h1><br>
     <a href="${request.contextPath}/user/index" style="margin-left: 50px">返回首页</a>
     <img src="../images/298955724.jpeg" alt="..." class="img-circle" style="border:2px solid black;margin-left: 800px">
 

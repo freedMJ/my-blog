@@ -18,7 +18,7 @@
     <![endif]-->
   </head>
   <body>
-  <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
+  <h1 id="head_title" style="text-align: center;">个人在线云笔记管理系统</h1><br>
   <div>
     <a href="${request.contextPath}/user/index" style="margin-left: 100px">返回首页</a>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp

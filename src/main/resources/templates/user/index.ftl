@@ -48,7 +48,7 @@
 
   </head>
   <body>
-    <h1 id="head_title" style="text-align: center;">个人博客</h1><br>
+    <h1 id="head_title" style="text-align: center;">个人在线云笔记管理系统</h1><br>
     
    <form class="form-inline" id="form" action="#" method="get">
     <div style="width:1400px;left: 100px ">

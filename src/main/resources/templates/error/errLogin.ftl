@@ -18,8 +18,8 @@
     <![endif]-->
 </head>
 <body>
-<h1 id="head_title" style="text-align: center;">个人博客</h1><br><br>
-<h1>${errMsg}</h1><span ><a href="${request.contextPath}/user/index">返回首页</a></span>
+<h1 id="head_title" style="text-align: center;">个人在线云笔记管理系统</h1><br>
+<h1>系统异常请</h1><span ><a href="${request.contextPath}/user/index">返回首页</a></span>
 
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
