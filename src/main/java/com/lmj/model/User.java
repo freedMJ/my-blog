@@ -14,21 +14,6 @@ public class User {
     public User() {
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", relName='" + relName + '\'' +
-                ", userSign='" + userSign + '\'' +
-                ", headPhoto='" + headPhoto + '\'' +
-                ", articleNums=" + articleNums +
-                ", phoneNum='" + phoneNum + '\'' +
-                '}';
-    }
-
     public User(Integer id, String username, String password, String email, String relName, String userSign, String headPhoto, Integer articleNums, String phoneNum) {
         this.id = id;
         this.username = username;
@@ -112,4 +97,20 @@ public class User {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", relName='" + relName + '\'' +
+                ", userSign='" + userSign + '\'' +
+                ", headPhoto='" + headPhoto + '\'' +
+                ", articleNums=" + articleNums +
+                ", phoneNum='" + phoneNum + '\'' +
+                '}';
+    }
 }
+

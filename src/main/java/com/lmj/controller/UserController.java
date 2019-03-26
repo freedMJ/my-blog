@@ -76,7 +76,9 @@ public class UserController {
     @ResponseBody
     public String userRegister(@RequestBody User user){
         //先进数据库查询用户名是否已被注册
+        System.out.println(user);
         User user2=userService.findUserByUserName(user.getUsername());
+        System.out.println(user2);
         String msg=null;
         //用户已经存在
         if(user2!=null){
@@ -89,7 +91,7 @@ public class UserController {
         }
         String data="{\"msg\":\""+msg+"\"}";
         return data;
-          }
+    }
 
     //登陆
     @GetMapping("login")
@@ -237,7 +239,6 @@ public class UserController {
     //删除文章
     @RequestMapping("delArticle")
     public String delArticle(@RequestParam(name="title",defaultValue = " null") String title,HttpServletRequest request){
-        System.out.println(title);
         if(!"null".equals(title)){
             //文章表删除记录，用户表文章数减一
             HttpSession session = request.getSession();
@@ -255,9 +256,8 @@ public class UserController {
     @GetMapping("updateArticle")
     public String updateArticle(@RequestParam(name="id",defaultValue = "null")int id,Model model){
         if(!("null".equals(id))){
-            System.out.println(id);
+            //根据id查找文章信息
             Article article = articleService.findArticleById(id);
-            System.out.println(article);
             model.addAttribute("article",article);
         }
         return "article/updateWirter";
@@ -265,7 +265,6 @@ public class UserController {
     @PostMapping("updateArticle")
     @ResponseBody
     public String updateArticle(@RequestBody Article article, HttpServletRequest request, Model model){
-        System.out.println("11111");
         HttpSession session =  request.getSession();
         User user=(User)session.getAttribute("user");
         String username = user.getUsername();
@@ -276,10 +275,8 @@ public class UserController {
         String text = article.getText();
         //判断是有已经有了重名的文章名
         String title=article.getTitle();
-        String is_title = articleService.findisExistTitleByTitle(title);
-        if(is_title!=null){
-            msg="已经存在文章标题，请修改文章标题";
-        }else if(title.length()<=0){
+        //String is_title = articleService.findisExistTitleByTitle(title);
+       if(title.length()<=0){
             msg="文章标题不能为空";
         }else if(keyWord.length()<=0){
             msg="请输入文章关键字";
@@ -288,21 +285,13 @@ public class UserController {
         }else if(text.length()<=11){
             msg="请输入文章正文内容";
         }else{
-            System.out.println("bbbbbb");
-            System.out.println(updateTime+"===="+title+"===="+keyWord+"===="+text+"==="+article.getId());
             articleService.updateUpdateArticleById(updateTime,title,keyWord,text,isOriginal,article.getId());
-            System.out.println("aaaaaaa");
             User new_user  = userService.findUserByUserName(username);
             session.setAttribute("user",new_user);
             msg="更新文章成功";
         }
         msg = "{\"msg\":\""+msg+"\"}";
         return msg;
-    }
-    @GetMapping("test")
-    public String test(){
-        int a=1/0;
-        return "user/index";
     }
 
 }

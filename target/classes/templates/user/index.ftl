@@ -153,7 +153,7 @@
             <#if pageNum gt 1><!--如果有上一页-->
             <li>
                 <a href="${request.contextPath}/user/index?pageNum=${pageNum-1}&username=${username}&title=${title}&keyWord=${keyWord}&isOriginal=${isOriginal}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                    <span aria-hidden="true">上一页</span>
                 </a>
             </li>
             </#if>
@@ -171,7 +171,7 @@
             <#if pageNum lt pages >
                 <li>
                     <a href="${request.contextPath}/user/index?pageNum=${pageNum+1}&username=${username}&title=${title}&keyWord=${keyWord}&isOriginal=${isOriginal}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
+                        <span aria-hidden="true">下一页</span>
                     </a>
                 </li>
             </#if>

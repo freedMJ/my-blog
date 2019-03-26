@@ -24,7 +24,7 @@
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
    <#if articleInfo??>
     <span class="label label-default">${articleInfo.keyWord}</span><!--关键字-->
-   <span class="label label-primary">${articleInfo.updateTime}</span><!--最后更新时间-->
+   <span class="label label-primary">最后更新时间${articleInfo.updateTime?number_to_datetime}</span><!--最后更新时间-->
   <span class="label label-success">
       <#if articleInfo.title??>
           ${articleInfo.title}
