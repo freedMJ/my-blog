@@ -299,5 +299,10 @@ public class UserController {
         msg = "{\"msg\":\""+msg+"\"}";
         return msg;
     }
+    @GetMapping("test")
+    public String test(){
+        int a=1/0;
+        return "user/index";
+    }
 
 }
