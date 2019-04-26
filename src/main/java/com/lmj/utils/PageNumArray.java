@@ -34,7 +34,7 @@ public class PageNumArray {
                     nums[i]=pageNum+i;
                 }
             }else{
-                for(int i=0;i<pages-pageNum;i++){
+                for(int i=0;i<listNums;i++){
                     nums[i]=pages-i;
 
                 }
