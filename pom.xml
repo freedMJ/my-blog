@@ -58,7 +58,12 @@
             <version>2.2.3</version>
             <classifier>jdk15</classifier>
         </dependency>
-
+        <!--百度图像识别api-->
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>4.10.0</version>
+        </dependency>
     </dependencies>
 
     <build>

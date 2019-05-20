@@ -85,7 +85,7 @@
               and a.keyWord=#{keyWord}
           </if>
           <if test="title!='all'">
-              and a.title=#{title}
+              and a.title like '%${title}%'
           </if>
           <if test="isOriginal!=3">
               and a.isOriginal=#{isOriginal}

@@ -5,14 +5,19 @@ import com.lmj.model.ArticleInfo;
 import com.lmj.model.User;
 import com.lmj.service.article.ArticleServiceImpl;
 import com.lmj.service.user.UserServiceImpl;
+import com.lmj.utils.BaiduApiUtil;
+import com.lmj.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("article")
@@ -61,7 +66,6 @@ public class ArticleController {
         msg = "{\"msg\":\""+msg+"\"}";
         return msg;
     }
-
     //查看文章详情
     @GetMapping("findArticle")
     public String findArticle(@RequestParam(name="title",defaultValue = " ")String title,Model model){
@@ -74,5 +78,22 @@ public class ArticleController {
 
         }
         return "article/article";
+    }
+    @PostMapping("articleImg")
+    public String uploadArticleImg(@RequestParam("file") MultipartFile file, HttpServletRequest request,Model model){
+        String contentType = file.getContentType();
+        String fileName = file.getOriginalFilename();
+        String filePath = "C:\\Users\\asus\\Desktop\\new_myblog\\src\\main\\resources\\static\\images\\";
+        String s =null;
+        try {
+            FileUtils.uploadFile(file.getBytes(), filePath, fileName);
+            s ="success";
+        } catch (Exception e) {
+            s="err";
+            // TODO: handle exception
+        }
+        String imgTxt = BaiduApiUtil.imageToTxt( filePath,fileName);
+        model.addAttribute("imgTxt",imgTxt);
+        return  "article/wirter";
     }
 }
