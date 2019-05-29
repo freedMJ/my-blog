@@ -6,6 +6,7 @@ import com.lmj.model.User;
 import com.lmj.service.article.ArticleServiceImpl;
 import com.lmj.service.user.UserServiceImpl;
 import com.lmj.utils.BaiduApiUtil;
+import com.lmj.utils.Constant;
 import com.lmj.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("article")
 public class ArticleController {
+    //注入常量类
+    @Autowired
+    private  Constant constant;
 
     @Autowired
     private ArticleServiceImpl articleService;
@@ -79,21 +83,44 @@ public class ArticleController {
         }
         return "article/article";
     }
-    @PostMapping("articleImg")
-    public String uploadArticleImg(@RequestParam("file") MultipartFile file, HttpServletRequest request,Model model){
-        String contentType = file.getContentType();
-        String fileName = file.getOriginalFilename();
-        String filePath = "C:\\Users\\asus\\Desktop\\new_myblog\\src\\main\\resources\\static\\images\\";
-        String s =null;
-        try {
-            FileUtils.uploadFile(file.getBytes(), filePath, fileName);
-            s ="success";
-        } catch (Exception e) {
-            s="err";
-            // TODO: handle exception
+    //表单提交
+//    @PostMapping("articleImg")
+//    public String uploadArticleImg(@RequestParam("file") MultipartFile file, HttpServletRequest request,Model model){
+//        String contentType = file.getContentType();
+//        String fileName = file.getOriginalFilename();
+//        String filePath = "C:\\Users\\asus\\Desktop\\new_myblog\\src\\main\\resources\\static\\images\\";
+//        String s =null;
+//        try {
+//            FileUtils.uploadFile(file.getBytes(), filePath, fileName);
+//            s ="success";
+//        } catch (Exception e) {
+//            s="err";
+//            // TODO: handle exception
+//        }
+//        String imgTxt = BaiduApiUtil.imageToTxt( filePath,fileName);
+//        model.addAttribute("imgTxt",imgTxt);
+//        return  "article/wirter";
+//    }
+    //ajax提交
+
+        @PostMapping("articleImg")
+        @ResponseBody
+        public Map<String,String> uploadArticleImg(@RequestParam("file") MultipartFile file){
+            String contentType = file.getContentType();
+            String fileName = file.getOriginalFilename();
+            String filePath = constant.getImageFile();
+                    String s =null;
+            try {
+                FileUtils.uploadFile(file.getBytes(), filePath, fileName);
+                s ="success";
+            } catch (Exception e) {
+                s="err";
+                // TODO: handle exception
+            }
+            String imgTxt = BaiduApiUtil.imageToTxt( filePath,fileName);
+            Map<String,String> map = new HashMap<String, String>();
+            map.put(s,"success");
+            map.put("imgTxt",imgTxt);
+            return  map;
         }
-        String imgTxt = BaiduApiUtil.imageToTxt( filePath,fileName);
-        model.addAttribute("imgTxt",imgTxt);
-        return  "article/wirter";
-    }
 }

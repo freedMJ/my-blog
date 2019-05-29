@@ -3,10 +3,12 @@ package com.lmj.utils;
 
 import com.baidu.aip.ocr.AipOcr;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
 
 public class BaiduApiUtil {
+
     //设置APPID/AK/SK
     public static final String APP_ID = "16288908";
     public static final String API_KEY = "YeyGVz9bFTBNrOfCyVEGT33T";

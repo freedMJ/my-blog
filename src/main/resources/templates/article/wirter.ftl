@@ -25,21 +25,21 @@
             var editor = new E('#editor');
             editor.customConfig.zIndex = 100;
             editor.create();
-            <#if imgTxt??>
-            var jsonStr="${imgTxt?js_string}"
-            jsonData=JSON.parse(jsonStr);
-            console.log(jsonData)
-            var str="";
-            for(i=0;i<jsonData.words_result.length;i++){
-                str+=(jsonData.words_result)[i].words
-            }
-            if(str.length>0){
-                editor.txt.html(str);
-            }
-            </#if>
+            <#--<#if imgTxt??>-->
+            <#--var jsonStr="${imgTxt?js_string}"-->
+            <#--jsonData=JSON.parse(jsonStr);-->
+            <#--console.log(jsonData)-->
+            <#--var str="";-->
+            <#--for(i=0;i<jsonData.words_result.length;i++){-->
+                <#--str+=(jsonData.words_result)[i].words-->
+            <#--}-->
+            <#--if(str.length>0){-->
+                <#--editor.txt.html(str);-->
+            <#--}-->
+            <#--</#if>-->
             $("#but").click(function(){
 
-                var text=editor.txt.html()
+                var text=editor.txt.html();
                 var title=$("#title").val();
                 var keyWord=$("#keyWord").val();
                 var isOriginal=$("#isOriginal").val();
@@ -72,6 +72,52 @@
                     )
                 }
             })
+            $("#sub").click(function(){
+                var imageName = $("#file").val()
+                var suffix = ((imageName.split("."))[1]).toUpperCase();//后缀名转大写
+                if(suffix!="JPG"&suffix!="JPEG"&suffix!="PNG"){
+                    alert("请选择正确的图片格式,仅支持jpg、jpeg、png、JPG、JPEG、PNG图片格式")
+                } else{
+                    $("#msg").css("color","red");
+                    $("#msg").html("识别图片中。。。。")
+                    var formData = new FormData();
+                    formData.append("file",document.getElementById("file").files[0]);
+                    $.ajax({
+                        url:"/article/articleImg",
+                        type:"post",
+                        data:formData,
+                        /**
+                         *必须false才会自动加上正确的Content-Type
+                         */
+                        contentType: false,
+                        /**
+                         * 必须false才会避开jQuery对 formdata 的默认处理
+                         * XMLHttpRequest会对 formdata 进行正确的处理
+                         */
+                        processData: false,
+                        success:function(data){
+                            var jsonData=JSON.parse(data.imgTxt);
+                            var str="";
+                            for(i=0;i<jsonData.words_result.length;i++){
+                                str+=(jsonData.words_result)[i].words
+                            }
+                            if(str.length<=0){
+                                $("#msg").css("color","green");
+                                $("#msg").html("未识别到文字！！！")
+                            }
+                            if(str.length>0){
+                                str="<xmp>"+str+"</xmp>"
+                                var text=editor.txt.html()
+                                var htmlTxt=text+str;
+                                editor.txt.text(htmlTxt);
+                                $("#msg").css("color","green");
+                                $("#msg").text("识别完成！！！")
+                            }
+                        }
+                    });
+                }
+
+            })
         })
     </script>
   </head>
@@ -83,10 +129,13 @@
       用户名：${Session.user.username}
     </#if>
     <h1>文章编写：</h1>
-  <form method="post" action="/article/articleImg" enctype="multipart/form-data">
-      <input type="file" name="file"><br>
-      <input type="submit" value="开始识别">
-  </form>
+  <#--<iframe name="framename" style="display:none;"></iframe>-->
+  <#--<form method="post" action="/article/articleImg" enctype="multipart/form-data" >-->
+      <#--<input type="file" name="file"><br>-->
+      <#--<input type="submit" value="开始识别" id="sub">-->
+  <#--</form>-->
+  <input type="file" name="file" id="file"><br>
+  <input type="submit" value="开始识别" id="sub"><span id="msg"></span><br>
     标题<input type="text" name="title" id="title">
     关键字<input type="text" name="keyWord" id="keyWord">
     标签<select id="isOriginal">

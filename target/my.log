@@ -1,0 +1,109 @@
+2019-05-29 09:35:05.499  INFO 4832 --- [main] com.lmj.App                              : Starting App on DESKTOP-1O9OU02 with PID 4832 (C:\Users\asus\Desktop\new_myblog\target\my-blog-1.0-SNAPSHOT.jar started by asus in C:\Users\asus\Desktop\new_myblog\target)
+2019-05-29 09:35:05.578  INFO 4832 --- [main] com.lmj.App                              : No active profile set, falling back to default profiles: default
+2019-05-29 09:35:06.711  INFO 4832 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32eebfca: startup date [Wed May 29 09:35:06 CST 2019]; root of context hierarchy
+2019-05-29 09:35:08.661  WARN 4832 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.lmj.App]; nested exception is java.lang.IllegalArgumentException: No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.
+2019-05-29 09:35:08.801 ERROR 4832 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.lmj.App]; nested exception is java.lang.IllegalArgumentException: No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:556) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:185) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:308) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:228) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:272) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:92) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:687) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:525) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [my-blog-1.0-SNAPSHOT.jar:na]
+	at com.lmj.App.main(App.java:26) [my-blog-1.0-SNAPSHOT.jar:na]
+Caused by: java.lang.IllegalArgumentException: No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.
+	at org.springframework.util.Assert.notEmpty(Assert.java:277) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.getCandidateConfigurations(AutoConfigurationImportSelector.java:153) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.selectImports(AutoConfigurationImportSelector.java:95) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:547) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	... 14 common frames omitted
+
+2019-05-29 09:36:00.220  INFO 2876 --- [main] com.lmj.App                              : Starting App on DESKTOP-1O9OU02 with PID 2876 (C:\Users\asus\Desktop\new_myblog\target\my-blog-1.0-SNAPSHOT.jar started by asus in C:\Users\asus\Desktop\new_myblog\target)
+2019-05-29 09:36:00.260  INFO 2876 --- [main] com.lmj.App                              : No active profile set, falling back to default profiles: default
+2019-05-29 09:36:00.332  INFO 2876 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@32eebfca: startup date [Wed May 29 09:36:00 CST 2019]; root of context hierarchy
+2019-05-29 09:36:00.602  WARN 2876 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.lmj.App]; nested exception is java.lang.IllegalArgumentException: No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.
+2019-05-29 09:36:00.617 ERROR 2876 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.lmj.App]; nested exception is java.lang.IllegalArgumentException: No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:556) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:185) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:308) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:228) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:272) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:92) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:687) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:525) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [my-blog-1.0-SNAPSHOT.jar:na]
+	at com.lmj.App.main(App.java:26) [my-blog-1.0-SNAPSHOT.jar:na]
+Caused by: java.lang.IllegalArgumentException: No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.
+	at org.springframework.util.Assert.notEmpty(Assert.java:277) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.getCandidateConfigurations(AutoConfigurationImportSelector.java:153) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector.selectImports(AutoConfigurationImportSelector.java:95) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:547) ~[my-blog-1.0-SNAPSHOT.jar:na]
+	... 14 common frames omitted
+
+2019-05-29 17:51:32.707  INFO 10592 --- [main] com.lmj.App                              : Starting App v1.0-SNAPSHOT on DESKTOP-1O9OU02 with PID 10592 (C:\Users\asus\Desktop\new_myblog\target\my-blog-1.0-SNAPSHOT.jar started by asus in C:\Users\asus\Desktop\new_myblog\target)
+2019-05-29 17:51:32.774  INFO 10592 --- [main] com.lmj.App                              : No active profile set, falling back to default profiles: default
+2019-05-29 17:51:33.637  INFO 10592 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@14514713: startup date [Wed May 29 17:51:33 CST 2019]; root of context hierarchy
+2019-05-29 17:51:41.269  INFO 10592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-29 17:51:49.718  INFO 10592 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8889 (http)
+2019-05-29 17:51:49.860  INFO 10592 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-29 17:51:49.890  INFO 10592 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2019-05-29 17:51:50.900  INFO 10592 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-29 17:51:50.900  INFO 10592 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 17293 ms
+2019-05-29 17:51:51.460  INFO 10592 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2019-05-29 17:51:51.480  INFO 10592 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-05-29 17:51:51.510  INFO 10592 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-05-29 17:51:51.510  INFO 10592 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-05-29 17:51:51.510  INFO 10592 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-05-29 17:51:55.795  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@14514713: startup date [Wed May 29 17:51:33 CST 2019]; root of context hierarchy
+2019-05-29 17:51:56.099  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/uploadArticle],methods=[GET]}" onto public java.lang.String com.lmj.controller.ArticleController.uploadArticle()
+2019-05-29 17:51:56.099  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/findArticle],methods=[GET]}" onto public java.lang.String com.lmj.controller.ArticleController.findArticle(java.lang.String,org.springframework.ui.Model)
+2019-05-29 17:51:56.109  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/articleImg],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.lmj.controller.ArticleController.uploadArticleImg(org.springframework.web.multipart.MultipartFile)
+2019-05-29 17:51:56.109  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/article/uploadArticle],methods=[POST]}" onto public java.lang.String com.lmj.controller.ArticleController.uploadArticla(com.lmj.model.Article,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.129  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/index],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.index(java.lang.String,java.lang.String,java.lang.String,int,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest,int)
+2019-05-29 17:51:56.129  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/userInfo],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.userInfo(javax.servlet.http.HttpServletRequest)
+2019-05-29 17:51:56.139  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateUserPassword],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.updataUserPassword(java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.139  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateUserPhoneNum],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.updataUserPhoneNum(java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.139  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateUserRelName],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.updataUserRelName(java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.139  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/quit]}" onto public java.lang.String com.lmj.controller.UserController.quit(javax.servlet.http.HttpServletRequest)
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.userRegister()
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/register],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.userRegister(com.lmj.model.User)
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateArticle],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.updateArticle(int,org.springframework.ui.Model)
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateArticle],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.updateArticle(com.lmj.model.Article,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.userLogin()
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.userLogin(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/delArticle]}" onto public java.lang.String com.lmj.controller.UserController.delArticle(java.lang.String,javax.servlet.http.HttpServletRequest)
+2019-05-29 17:51:56.149  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateUserEmail],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.updataUserEmail(java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.159  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/updateUserSign],methods=[POST]}" onto public java.lang.String com.lmj.controller.UserController.updateUserSign(java.lang.String,javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2019-05-29 17:51:56.169  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/findAuthor],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.findAuthorCenter(org.springframework.ui.Model,int,int)
+2019-05-29 17:51:56.169  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/userCenter],methods=[GET]}" onto public java.lang.String com.lmj.controller.UserController.userCenter(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model,int)
+2019-05-29 17:51:56.169  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-05-29 17:51:56.179  INFO 10592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-29 17:51:56.259  INFO 10592 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-29 17:51:56.259  INFO 10592 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-29 17:51:56.309  INFO 10592 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalExceptionHandler
+2019-05-29 17:51:56.391  INFO 10592 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-05-29 17:51:57.796  INFO 10592 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@14514713: startup date [Wed May 29 17:51:33 CST 2019]; root of context hierarchy] and template loader path [classpath:/templates/]
+2019-05-29 17:51:57.800  INFO 10592 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-05-29 17:51:58.410  INFO 10592 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2019-05-29 17:51:59.498  INFO 10592 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8889 (http)
+2019-05-29 17:51:59.668  INFO 10592 --- [main] com.lmj.App                              : Started App in 30.28 seconds (JVM running for 33.706)
+2019-05-29 17:52:13.419  INFO 10592 --- [http-nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-05-29 17:52:13.419  INFO 10592 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-05-29 17:52:14.171  INFO 10592 --- [http-nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 748 ms
+2019-05-29 17:53:14.711  INFO 10592 --- [http-nio-8889-exec-10] com.baidu.aip.client.BaseClient          : get access_token success. current state: STATE_AIP_AUTH_OK
