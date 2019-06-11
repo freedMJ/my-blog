@@ -22,35 +22,12 @@
     color:black ; 
 }
     </style>
-      <#--分页代码-->
-      <script>
-          $(function(){
-              $("#but").click(function(){
-                  var username=$("#username").val();
-                  var keyWord=$("#keyWord").val();
-                  var title=$("#title").val();
-                  var isOriginal =$("#isOriginal").val();
-                  var jsonData={
-                      "username":username,
-                      "keyWord":keyWord,
-                      "title":title,
-                      "isOriginal":isOriginal
-                  };
-                  $.ajax({
-                      type:"get",
-                      url:"user/index",
-                      data:JSON.stringify(jsonData),
-                      contentType:"application/json"
-                  })
-              })
-          })
-      </script>
 
   </head>
   <body>
     <h1 id="head_title" style="text-align: center;">个人在线云笔记管理系统</h1><br>
     
-   <form class="form-inline" id="form" action="#" method="get">
+   <form class="form-inline" id="form" action="${request.contextPath}/user/index" method="get">
     <div style="width:1400px;left: 100px ">
   <div class="form-group">
     <label for="exampleInputName2">作者</label>
@@ -73,7 +50,8 @@
 
       </select>
   </div>
-  <button type="submit" class="btn btn-default" id="but">搜索</button>
+  <button type="submit" class="btn btn-default" >搜索</button>
+        <#--<button type="submit" class="btn btn-default" id="but">搜索</button>-->
     </div>
    </form>
   <div style="float: right;">

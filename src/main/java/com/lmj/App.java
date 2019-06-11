@@ -17,7 +17,7 @@ import java.util.Properties;
 //@ComponentScan(basePackages = {"com.lmj.web","com.lmj.service"})
 @SpringBootApplication
 @MapperScan(basePackages = "com.lmj.mapper" )
-@ComponentScan(basePackages = {"com.lmj","com.lmj.service","com.lmj.model","com.lmj.config","com.lmj.utils"})
+//@ComponentScan(basePackages = {"com.lmj","com.lmj.service","com.lmj.model","com.lmj.config","com.lmj.utils"})
 @EnableScheduling
 @EnableCaching
 public class App {

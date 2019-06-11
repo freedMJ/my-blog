@@ -29,7 +29,7 @@ public class UserController {
     //规定每页显示的数据条数
     @Value("${common.pageSize}")
     int pageSize;
-    //首页
+//    //首页
     @GetMapping("index")
     public String index(@RequestParam(name="username",defaultValue = "all") String username,@RequestParam(name = "keyWord",defaultValue = "all")String keyWord,
                         @RequestParam(name="title",defaultValue = "all")String title,@RequestParam(name = "isOriginal",defaultValue = "3")int isOriginal,
@@ -65,6 +65,7 @@ public class UserController {
         model.addAttribute("pageSize",pageSize);
         return "user/index";
     }
+
     //注册
     @GetMapping("register")
     public String userRegister(){

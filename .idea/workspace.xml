@@ -2,21 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac5d721a-4221-4028-95ce-b5f40ac32a50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lmj/utils/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my.log" beforeDir="false" afterPath="$PROJECT_DIR$/my.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lmj/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lmj/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lmj/utils/BaiduApiUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lmj/utils/BaiduApiUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lmj/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lmj/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/article/wirter.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/article/wirter.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/imagestest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/index.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lmj/controller/ArticleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lmj/controller/ArticleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lmj/controller/UploadFileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lmj/utils/BaiduApiUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lmj/utils/BaiduApiUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/QQ截图20190520043658.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/images/test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/article/wirter.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/article/wirter.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lmj/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lmj/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lmj/mapper/article/ArticleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lmj/mapper/article/ArticleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/QQ截图20190529054213.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/QQ截图20190529055335.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/QQ截图20190529060130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/微信图片_20190523184625.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/images/微信图片_20190528191436.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/imagestest.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,20 +37,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="152">
+              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/Constant.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-404">
+              <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -55,29 +55,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            <state relative-caret-position="79">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1369#1370#0" expanded="true" />
+                <element signature="e#1417#1418#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/article/wirter.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1862">
-              <caret line="98" column="65" selection-start-line="98" selection-start-column="65" selection-end-line="98" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/article/article.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1482">
-              <caret line="78" column="15" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -85,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="342">
               <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -97,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/ArticleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2033">
+            <state relative-caret-position="2150">
               <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -109,20 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/BaiduApiUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="380">
+              <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -130,12 +102,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
+            <state relative-caret-position="-342">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#findAuthorCenter#0;class#UserController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/index.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/article/updateWirter.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="75" column="46" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -191,24 +193,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/service/article/ArticleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/service/user/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/error/errLogin.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lmj/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/config/errPage/ErrorPageConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/user/index.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/user/register.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/article/article.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/config/exception/GlobalExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/utils/PageNumArray.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/controller/UploadFileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/utils/FileUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/utils/BaiduApiUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/utils/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lmj/controller/ArticleController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/article/wirter.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lmj/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/user/index.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -246,7 +248,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="565" />
     <option name="y" value="15" />
     <option name="width" value="980" />
@@ -325,15 +327,6 @@
               <item name="new_myblog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lmj" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new_myblog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new_myblog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -342,12 +335,25 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="new_myblog" type="b2602c69:ProjectViewProjectNode" />
               <item name="new_myblog" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new_myblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new_myblog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -367,7 +373,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559125611831" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560225326989" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -408,6 +414,7 @@
         </RuleState>
       </list>
     </option>
+    <option name="contentProportion" value="0.11953552" />
   </component>
   <component name="RunManager">
     <configuration name="App (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -467,11 +474,13 @@
       <workItem from="1558378461236" duration="74000" />
       <workItem from="1559076693208" duration="12961000" />
       <workItem from="1559119760413" duration="2858000" />
+      <workItem from="1559333034430" duration="260000" />
+      <workItem from="1560219043831" duration="6220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243439000" />
+    <option name="totallyTimeSpent" value="249919000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -484,8 +493,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49591836" visible="true" weight="0.31702414" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49591836" visible="true" weight="0.28619304" />
       <window_info id="Structure" order="1" sideWeight="0.5040816" side_tool="true" weight="0.23659517" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -493,7 +503,6 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.5021097" side_tool="true" weight="0.25670242" />
       <window_info id="Web" order="7" sideWeight="0.5021097" weight="0.25670242" />
-      <window_info anchor="bottom" id="Run Dashboard" weight="0.3286119" />
       <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
@@ -502,14 +511,15 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.32956153" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932975" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32956153" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49932975" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -614,16 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/service/article/IArticleService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -676,13 +676,6 @@
             <element signature="e#2127#2128#0" expanded="true" />
             <element signature="e#2157#2158#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/article/updateWirter.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="74" column="70" selection-start-line="74" selection-start-column="70" selection-end-line="74" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -846,13 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/PageNumArray.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -878,16 +864,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/test.pngtest.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/imagestest.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="87" column="43" selection-start-line="87" selection-start-column="43" selection-end-line="87" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/test.png" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/UploadFileController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/images/QQ截图20190529054213.png" />
@@ -915,26 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/ArticleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2033">
-          <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/BaiduApiUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -945,21 +901,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#findAuthorCenter#0;class#UserController#0" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/imagestest.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/utils/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        <state relative-caret-position="342">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -968,15 +916,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+        <state relative-caret-position="380">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1417#1418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/article/updateWirter.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/ArticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#findAuthorCenter#0;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lmj/mapper/article/ArticleMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-404">
+          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="152">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>
