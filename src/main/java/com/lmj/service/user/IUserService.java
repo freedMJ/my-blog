@@ -2,6 +2,8 @@ package com.lmj.service.user;
 
 import com.lmj.model.User;
 
+import java.util.List;
+
 public interface IUserService {
     //注册用户
     void registerUser(User user);
@@ -25,4 +27,6 @@ public interface IUserService {
     void updateArticleNumsbyUserName(String username);
     //每次删除文章用户文章数减一
     void delArticleOnlyOne(String username);
+    //查找所有的文章标签字
+    List<String> findAllKeyWord();
 }

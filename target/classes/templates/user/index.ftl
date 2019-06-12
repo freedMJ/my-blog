@@ -11,8 +11,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
       <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+
       <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+      <!-- bootstrap-select 下拉选择框-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <style type="text/css">
       #form{
         text-align:center;
@@ -22,7 +26,6 @@
     color:black ; 
 }
     </style>
-
   </head>
   <body>
     <h1 id="head_title" style="text-align: center;">个人在线云笔记管理系统</h1><br>
@@ -33,9 +36,19 @@
     <label for="exampleInputName2">作者</label>
     <input type="text" class="form-control" id="author" placeholder="文章作者或上传用户" name="username">
   </div>
+   <label for="exampleInputName2">关键词
   <div class="form-group">
-    <label for="exampleInputName2">关键词</label>
-    <input type="text" class="form-control" id="keyword" placeholder="标题关键字" name="keyWord">
+    <#--<label for="exampleInputName2">关键词</label>-->
+    <#--<input type="text" class="form-control" id="keyword" placeholder="标题关键字" name="keyWord">-->
+      <#--<select class="form-control selectpicker show-tick form-control" data-live-search="true">-->
+      <select id="selectKeyWord" class="selectpicker form-control" data-live-search="true" style="float: left" name="keyWord" style="max-height: 50px">
+          <option>--请选择文章关键字--</option>
+          <#if allKeyWord??>
+              <#list  allKeyWord as keyWord>
+                  <option value="${keyWord}">${keyWord}</option>
+              </#list>
+          </#if>
+      </select>
   </div>
   <div class="form-group">
     <label for="exampleInputName2">文章标题</label>
@@ -65,8 +78,8 @@
       </#if>
   </div>
     <div>
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="${request.contextPath}/user/index">首页</a></li>
+    <ul class="nav nav-pills nav-tabs">
+        <li role="presentation" class="active"><a href="${request.contextPath}/user/index" >首页</a></li>
         <li role="presentation"><a href="${request.contextPath}/user/userCenter">个人中心</a></li>
     </ul>
 <table class="table table-striped">

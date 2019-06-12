@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 
 @Controller
@@ -63,6 +64,9 @@ public class UserController {
         model.addAttribute("isOriginal",isOriginal);
         model.addAttribute("pageNum",pageNum);
         model.addAttribute("pageSize",pageSize);
+        //查找所有的文章关键字
+        List<String> allKeyWord = userService.findAllKeyWord();
+        model.addAttribute("allKeyWord",allKeyWord);
         return "user/index";
     }
 

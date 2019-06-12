@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class UserServiceImpl implements IUserService {
@@ -70,6 +72,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void delArticleOnlyOne(String username) {
         userMapper.delArticleOnlyOne(username);
+    }
+    //查找所有的文章标签字
+    @Override
+    public List<String> findAllKeyWord() {
+        return userMapper.findAllKeyWord();
     }
 
 

@@ -3,6 +3,8 @@ package com.lmj.mapper.user;
 import com.lmj.model.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
     //注册
     void registerUser(User user);
@@ -27,4 +29,6 @@ public interface UserMapper {
     void updateArticleNumsbyUserName(String username);
     //每次删除文章用户文章数减一
     void delArticleOnlyOne(@Param("username")String username);
+    //查找所有的文章标签字
+    List<String> findAllKeyWord();
 }

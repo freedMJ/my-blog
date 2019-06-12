@@ -59,4 +59,9 @@
     <update id="delArticleOnlyOne">
         update user set articleNums = articleNums-1 where username=#{username}
     </update>
+    <!--//查找所有的文章标签字-->
+    <!--List<String> findAllKeyWord();-->
+    <select id="findAllKeyWord" resultType="String">
+        select distinct  keyWord from article
+    </select>
 </mapper>
